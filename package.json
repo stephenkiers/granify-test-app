@@ -52,7 +52,7 @@
     "tests_break": "================================================================================================",
     "test": "jest",
     "test-watch": "jest --watch",
-    
+
     "heroku_scripts_break": "================================================================================================",
     "prod-css": "node-sass --include-path scss ./src/app/app.scss   public/cdn-generated/granify.css --output-style compressed",
     "prod-js": "webpack --config ./webpack.prod.config.js --progress --colors --display-error-details",
