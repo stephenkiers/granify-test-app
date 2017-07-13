@@ -7,7 +7,7 @@ import initial_state from '../initial_state'
 
 // Create Redux store with initial state
 const store = configure_store(initial_state);
-console.log(initial_state)
+
 render(
     <Provider store={ store }>
         <App />

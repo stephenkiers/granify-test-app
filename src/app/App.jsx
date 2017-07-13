@@ -1,21 +1,14 @@
 import React, { Component } from 'react'
 import RecordsContainer from "./Record/index/RecordsContainer";
+import NewRecordButtonContainer from "./components/NewRecordButtonContainer";
 
 class App extends Component {
     render () {
         return (
             <div className="container">
-                <header>
-
-                </header>
                 <div className="universal-actions clearfix">
                     <div className="pull-left">
-                        <a
-                            href="javascript:void(0);"
-                            className="btn btn-blue"
-                        >
-                            New
-                        </a>
+                        <NewRecordButtonContainer />
                     </div>
                     <div className="pull-right">
                         <div className="pill" title="Total">

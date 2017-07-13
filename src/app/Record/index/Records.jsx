@@ -11,7 +11,6 @@ class Records extends Component {
             <div className="index-of-records">
                 {
                     this.props.records.map(record => {
-                        console.log(record.toJS());
                         return (
                             <RecordContainer
                                 key={record.get('id')}
@@ -27,7 +26,7 @@ class Records extends Component {
 Records.defaultProps = {
 };
 Records.propTypes = {
-    records: ImmutablePropTypes.map.isRequired,
+    records: ImmutablePropTypes.set.isRequired,
 }
 
 export default Records

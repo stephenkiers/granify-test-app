@@ -47,6 +47,10 @@ Record.defaultProps = {
     phone_number: "555-555-5555"
 };
 Record.propTypes = {
+    id: PropTypes.string.isRequired,
+    first_name: PropTypes.string.isRequired,
+    last_name: PropTypes.string.isRequired,
+    phone_number: PropTypes.string.isRequired,
 }
 
 export default Record
