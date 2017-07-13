@@ -9,7 +9,7 @@ export const default_record = Map({
     created_at: undefined,
 })
 
-const city = (state = Map(), action) => {
+const city = (state = Map({state: 'idle'}), action) => {
     switch (action.type) {
         case record_constants.RECORD_UPDATE:
             return state.merge(Map({

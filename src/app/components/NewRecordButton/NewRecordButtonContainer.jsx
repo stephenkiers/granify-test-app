@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import NewRecordButton from "./NewRecordButton";
 import {reduxAppStateSetModalId} from "../../AppState/actions";
+import {generateRandomUUID} from "../../utils";
 
 
 class NewRecordButtonContainer extends Component {
@@ -12,10 +13,7 @@ class NewRecordButtonContainer extends Component {
 
         this.onClick = e => {
             e.preventDefault();
-            const time_id = (new Date).getTime().toString(36);
-            const length_needed = 10-time_id.length;
-            const pad_chacters = Math.floor(Math.random()*123456789).toString(36).substring(0, length_needed);
-            this.props.setModalId(`${time_id}${pad_chacters}`)
+            this.props.setModalId(generateRandomUUID())
         }
     }
     render() {

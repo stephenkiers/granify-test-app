@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import RecordsContainer from "./Record/index/RecordsContainer";
 import NewRecordButtonContainer from "./components/NewRecordButton/NewRecordButtonContainer";
 import UpdateRecordModalContainer from "./Record/update_modal/UpdateRecordModalContainer";
+import StatsContainer from "./AppState/Stats/StatsContainer";
 
 class App extends Component {
     render () {
@@ -13,18 +14,7 @@ class App extends Component {
                             <NewRecordButtonContainer />
                         </div>
                         <div className="pull-right">
-                            <div className="pill" title="Total">
-                                <strong>Total</strong>
-                                <span>20</span>
-                            </div>
-                            <div className="pill" title="Avg /hour">
-                                <strong>Avg /hour</strong>
-                                <span>10</span>
-                            </div>
-                            <div className="pill positive" title="Last hour">
-                                <strong>Last hour</strong>
-                                <span>+8</span>
-                            </div>
+                            <StatsContainer />
                         </div>
                     </div>
                     <RecordsContainer />

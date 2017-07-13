@@ -12,6 +12,8 @@ const rootReducer = combineReducers({
 // export default rootReducer
 export default rootReducer
 
+export const getStats = state =>
+    fromAppState.getStats(state.get('app_state'))
 export const getModalId = state =>
     fromAppState.getModalId(state.get('app_state'))
 
