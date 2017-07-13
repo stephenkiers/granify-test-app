@@ -3,7 +3,7 @@ import {reduxAppStateSetModalId} from "../AppState/actions";
 import faker from 'faker';
 import {generateRandomUUID} from "../utils";
 
-const reduxRecordAdd = (id, first_name, last_name, phone_number, created_at) => ({
+export const reduxRecordUpdate = (id, first_name, last_name, phone_number, created_at) => ({
     type: record_constants.RECORD_UPDATE,
     id,
     first_name,
@@ -11,11 +11,11 @@ const reduxRecordAdd = (id, first_name, last_name, phone_number, created_at) => 
     phone_number,
     created_at,
 });
-const reduxRecordDelete = id => ({
+export const reduxRecordDelete = id => ({
     type: record_constants.RECORD_DELETE,
     id
 })
-const reduxRecordUpdateState = (id, state) => ({
+export const reduxRecordUpdateState = (id, state) => ({
     type: record_constants.RECORD_UPDATE_STATE,
     id,
     state,
@@ -39,7 +39,7 @@ export const apiRecordGetLatest = () => {
                 })
             })
             testData.forEach(result => {
-                dispatch(reduxRecordAdd(
+                dispatch(reduxRecordUpdate(
                     result.id,
                     result.first_name,
                     result.last_name,
@@ -60,7 +60,7 @@ export const apiRecordUpdate = (id, first_name, last_name, phone_number, created
             // In practice, there would be a catch when/if there are errors
             // POST `v1/records/${id}`
             created_at = created_at || (new Date).getTime();
-            dispatch(reduxRecordAdd(id, first_name, last_name, phone_number, created_at));
+            dispatch(reduxRecordUpdate(id, first_name, last_name, phone_number, created_at));
             dispatch(reduxRecordUpdateState(id, 'idle'));
             dispatch(reduxAppStateSetModalId(undefined));
         }, 2000);
