@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import ModalContainer from "../../components/Modal/ModalContainer";
-import TextInput from "./components/input";
+import TextInput from "./components/TextInput";
+import TelephoneInput from "./components/TelephoneInput";
 
 class UpdateRecordModal extends Component {
     constructor(props) {
@@ -70,7 +71,7 @@ class UpdateRecordModal extends Component {
                         onChange={this.onChangeLastName}
                         tab_index={1}
                     />
-                    <TextInput
+                    <TelephoneInput
                         id="phone_number"
                         label="Phone number"
                         value={phone_number}

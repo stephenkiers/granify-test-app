@@ -5,15 +5,6 @@ export default Map({
         modal_id: undefined,
     }),
     records: Map({
-        byId: Map({
-            "0123456789": Map({
-                state: 'idle',
-                id: "0123456789",
-                first_name: "test",
-                last_name: "user",
-                phone_number: "555-555-5555",
-                created_at: (new Date).getTime(),
-            })
-        }),
+        byId: Map(),
     }),
 })

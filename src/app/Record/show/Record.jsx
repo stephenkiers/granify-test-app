@@ -24,14 +24,14 @@ class Record extends Component {
                 <div className="pull-right">
                     <a
                         href="javascript:void(0);"
-                        className="btn btn-blue"
+                        className="btn"
                         onClick={this.props.onUpdateClick}
                     >
                         Update
                     </a>
                     <a
                         href="javascript:void(0);"
-                        className="btn btn-blue"
+                        className="btn btn-danger"
                     >
                         Delete
                     </a>

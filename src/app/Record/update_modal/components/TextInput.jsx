@@ -11,8 +11,12 @@ class TextInput extends Component {
     render() {
         return (
             <div className="text-input">
+                <label className="text-label">
+                    {this.props.label}
+                </label>
                 <input
                     type="text"
+                    className="form-input"
                     value={this.props.value}
                     onChange={this.onChange}
                 />
@@ -28,6 +32,7 @@ TextInput.propTypes = {
     id:PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     tab_index: PropTypes.number.isRequired,
+    label: PropTypes.string.isRequired,
 }
 
 export default TextInput
