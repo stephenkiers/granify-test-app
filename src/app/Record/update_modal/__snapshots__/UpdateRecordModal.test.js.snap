@@ -28,6 +28,7 @@ exports[`UpdateRecordModal displays correct 1`] = `
     />
     <button
       className="btn"
+      disabled={false}
       type="submit"
     >
       Save changes

@@ -10,14 +10,12 @@ class Record extends Component {
         return (
             <div className="record clearfix">
                 <div className="pull-left">
-                    <strong>
-                        <span className="last-name">
-                            {this.props.last_name},{' '}
-                        </span>
-                        <span className="first-name">
+                    <strong className="last-name">
+                        {this.props.last_name},{' '}
+                    </strong>
+                    <span className="first-name">
                             {this.props.first_name}
                         </span>
-                    </strong>
                     <a href={`tel:${this.props.phone_number}`} className="phone-number">
                         {formatTelephoneNumber(this.props.phone_number)}
                     </a>

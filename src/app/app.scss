@@ -2,20 +2,49 @@ $base_fontcolor : #000;
 $brand_color : #96D42C;
 $link_color : #21798E;
 
-$serif_font: 'Playfair Display', Cambria, Georgia, "Times New Roman", Times, serif;
-
 body {
   background: #fcfcfc;
   color: #3a3f3c;
+  margin:0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 .container {
   width:98%;
   max-width:1200px;
   margin: 0 auto;
 }
-.mob-hide {
-  @media (max-width: 544px) {
-    display:none;
+
+header {
+  border-top:5px solid $brand_color;
+  background: #fff;
+  border-bottom:1px solid #ccc;
+  padding:10px 20px;
+  margin-bottom:20px;
+  h1 {
+    margin:0;
+    padding:0;
+    color:#09262D;
+    img {
+      vertical-align: middle;
+      margin-right:10px;
+    }
+    span {
+      line-height:40px;
+      font-size:14px;
+      @media (max-width: 544px) {
+        font-size:10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 544px) {
+  .btn.mob-block {
+    display:block
+  }
+  .btn.mob-text-center {
+    text-align: center;
   }
 }
 .pull-left {
@@ -24,6 +53,7 @@ body {
   @media (max-width: 544px) {
     float:none;
     text-align:left;
+    margin-bottom:10px;
   }
 }
 .pull-right {
@@ -31,7 +61,7 @@ body {
   float:right;
   @media (max-width: 544px) {
     float:none;
-    margin-top:10px;
+    margin-bottom:10px;
     text-align:left;
   }
 }
@@ -51,7 +81,7 @@ body {
   display:inline-block;
   background: $link_color;
   color: #fff;
-  padding:5px 10px;
+  padding:7px 18px;
   margin-right:10px;
   border-radius: 2px;
   &:last-of-type {
@@ -61,6 +91,11 @@ body {
   &:hover {
     background: lighten($link_color, 10%);
     text-decoration:none;
+  }
+  &:disabled {
+    background: desaturate(lighten($link_color, 25%), 25%);
+    color:#fff;
+    cursor: not-allowed;
   }
   &.btn-danger {
     background: red;
@@ -86,8 +121,9 @@ button.btn {
   input.form-input {
     display:block;
     width:100%;
-    padding: 5px 10px;
+    padding: 7px 18px;
     background: #fff;
+    font-size:14px;
     border:1px solid rgba(0,0,0,0.2);
     border-radius:3px;
     margin-bottom:10px;
@@ -131,16 +167,20 @@ button.btn {
     }
     .last-name {
       font-size: 18px;
+      line-height:32px;
       color:#1a1a1a;
     }
     .first-name {
-      font-size: 14px;
+      font-size: 18px;
+      line-height:32px;
       color: #444;
     }
     .phone-number {
       font-size: 18px;
+      line-height:32px;
       color: $link_color;
       margin-left: 20px;
+      text-decoration:none;
     }
     &.record-delete {
       color:red;

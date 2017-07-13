@@ -7,7 +7,7 @@ class NewRecordButton extends Component {
         return (
             <a
                 href="javascript:void(0);"
-                className="btn"
+                className="btn mob-block mob-text-center"
                 onClick={this.props.onClick}
             >
                 New

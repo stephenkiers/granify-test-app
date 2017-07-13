@@ -11,33 +11,43 @@ class UpdateRecordModal extends Component {
             first_name: props.first_name,
             last_name: props.last_name,
             phone_number: props.phone_number,
-        }
+            valid: false,
+        };
         this.onChangeFirstName = new_value => {
             this.setState({
                 first_name: new_value
             });
-        }
+        };
         this.onChangeLastName = new_value => {
             this.setState({
                 last_name: new_value
             });
-        }
+        };
         this.onChangePhoneNumber = new_value => {
             this.setState({
                 phone_number: new_value
             });
-        }
-
+        };
         this.onSave = e => {
             e.preventDefault();
             // id, first_name, last_name, phone_number, created_at
-            this.props.onSave(
-                this.props.id,
-                this.state.first_name,
-                this.state.last_name,
-                this.state.phone_number,
-                this.props.created_at ? this.props.created_at : (new Date).getTime(),
-            )
+            if (this.isFormValid()) {
+                this.props.onSave(
+                    this.props.id,
+                    this.state.first_name,
+                    this.state.last_name,
+                    this.state.phone_number,
+                    this.props.created_at ? this.props.created_at : (new Date).getTime(),
+                )
+            } else {
+                console.log('form not valid')
+            }
+        };
+        this.isFormValid = () => {
+            console.log('check valid');
+            return this.state.first_name.length > 0
+                && this.state.last_name.length > 0
+                && this.state.phone_number.length === 10
         }
     }
 
@@ -56,7 +66,10 @@ class UpdateRecordModal extends Component {
 
         return (
             <ModalContainer>
-                <form onSubmit={this.onSave}>
+                <form
+                    onSubmit={this.onSave}
+
+                >
                     <TextInput
                         id="first_name"
                         label="First name"
@@ -81,6 +94,7 @@ class UpdateRecordModal extends Component {
                     <button
                         type="submit"
                         className="btn"
+                        disabled={!this.isFormValid()}
                     >
                         Save changes
                     </button>

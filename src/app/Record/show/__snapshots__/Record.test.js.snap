@@ -7,20 +7,18 @@ exports[`Record displays correct 1`] = `
   <div
     className="pull-left"
   >
-    <strong>
-      <span
-        className="last-name"
-      >
-        LastName
-        ,
-         
-      </span>
-      <span
-        className="first-name"
-      >
-        FirstName
-      </span>
+    <strong
+      className="last-name"
+    >
+      LastName
+      ,
+       
     </strong>
+    <span
+      className="first-name"
+    >
+      FirstName
+    </span>
     <a
       className="phone-number"
       href="tel:5555555555"
