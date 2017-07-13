@@ -7,7 +7,7 @@ const storeCompose = compose(
                 applyMiddleware(thunk),
                 window.devToolsExtension ? window.devToolsExtension({ maxAge: 200 }) : f => f
             );
-export default function configureStore(initialState) {
-    return createStore(reducers, initialState, storeCompose);
+export default function configureStore(initial_state) {
+    return createStore(reducers, initial_state, storeCompose);
 }
 

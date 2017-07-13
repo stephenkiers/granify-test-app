@@ -3,11 +3,11 @@ import { render } from 'react-dom'
 import {Provider } from 'react-redux'
 import configure_store from '../configure_store'
 import App from '../../app/App'
-import initialState from '../initial_state'
+import initial_state from '../initial_state'
 
 // Create Redux store with initial state
-const store = configure_store(initialState);
-
+const store = configure_store(initial_state);
+console.log(initial_state)
 render(
     <Provider store={ store }>
         <App />

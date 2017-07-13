@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Record from "./components/Record";
+import RecordsContainer from "./Record/index/RecordsContainer";
 
 class App extends Component {
     render () {
@@ -32,17 +32,7 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="index-of-records">
-                    {
-                        [0,1,2,3,4,5,6,7,8,9].map(i => {
-                            return (
-                                <Record
-                                    key={i}
-                                />
-                            )
-                        })
-                    }
-                </div>
+                <RecordsContainer />
             </div>
         )
     }

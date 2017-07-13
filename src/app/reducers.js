@@ -1,11 +1,21 @@
 import {combineReducers} from 'redux-immutable'
 
-// import weddings, * as fromWeddings from './Weddings/weddings_reducers'
+import app_state, * as fromAppState from './AppState/app_state_reducers'
+import records, * as fromRecords from './Record/records_reducers'
 
 const rootReducer = combineReducers({
-    // weddings,
+    app_state,
+    records,
 });
 
 
 // export default rootReducer
-export default () => {}
+export default rootReducer
+
+export const getModalId = state =>
+    fromAppState.getModalId(state.get('app_state'))
+
+export const getRecords = state =>
+    fromRecords.getRecords(state.get('records'));
+export const getRecord = (state, id) =>
+    fromRecords.getRecord(state.get('records'), id);
