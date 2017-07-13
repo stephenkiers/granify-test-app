@@ -32,8 +32,8 @@ export const apiRecordGetLatest = () => {
             Array.from(new Array(10)).forEach(i => {
                 testData.push({
                     id: generateRandomUUID(),
-                    first_name: faker.Name.firstName(),
-                    last_name: faker.Name.lastName(),
+                    first_name: faker.name.firstName(),
+                    last_name: faker.name.lastName(),
                     phone_number: `${Math.floor(1000000000 + Math.random() * 9000000000)}`,
                     created_at: (new Date).getTime() - Math.floor(Math.random() * 1000)
                 })
