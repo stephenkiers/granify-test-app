@@ -1,22 +1,26 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import {Map} from 'immutable';
-import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import {default_record} from "../record_reducers";
 import {getModalId, getRecord} from "../../reducers";
 import UpdateRecordModal from "./UpdateRecordModal";
+import {apiRecordUpdate} from "../actions";
 
 class UpdateRecordModalContainer extends Component {
 
     render() {
-        const {modal_id} = this.props;
+        const {modal_id, edit_record} = this.props;
         if (!modal_id) {
             return null
         }
         return (
             <UpdateRecordModal
-                edit_record={this.props.edit_record}
+                id={modal_id}
+                first_name={edit_record.get('first_name')}
+                last_name={edit_record.get('last_name')}
+                phone_number={edit_record.get('phone_number')}
+                created_at={edit_record.get('created_at')}
+                state={edit_record.get('state')}
+                onSave={this.props.onSave}
             />
         )
     }
@@ -36,6 +40,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+    onSave(id, first_name, last_name, phone_number, created_at) {
+        dispatch(apiRecordUpdate(id, first_name, last_name, phone_number, created_at))
+    }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateRecordModalContainer)

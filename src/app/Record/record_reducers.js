@@ -6,12 +6,12 @@ export const default_record = Map({
     first_name: "",
     last_name: "",
     phone_number: "",
-    created_at: 0,
+    created_at: undefined,
 })
 
 const city = (state = Map(), action) => {
     switch (action.type) {
-        case record_constants.RECORD_ADD:
+        case record_constants.RECORD_UPDATE:
             return state.merge(Map({
                 id: action.id,
                 first_name: action.first_name,

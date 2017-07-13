@@ -15,6 +15,15 @@ class RecordContainer extends Component {
     }
     render() {
         const {record} = this.props;
+
+        if (record.get('state') !== 'idle') {
+            return (
+                <div className="record clearfix">
+                    <strong>Saving...</strong>
+                </div>
+            )
+        }
+
         return (
             <Record
                 id={record.get('id')}

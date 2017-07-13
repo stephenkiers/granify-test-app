@@ -11,7 +11,8 @@ export default Map({
                 id: "0123456789",
                 first_name: "test",
                 last_name: "user",
-                phone_number: "555-555-5555"
+                phone_number: "555-555-5555",
+                created_at: (new Date).getTime(),
             })
         }),
     }),
