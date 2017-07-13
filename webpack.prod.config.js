@@ -6,7 +6,7 @@ module.exports = {
     // devtool: 'cheap-module-source-map',
 
     entry: {
-        wedimg: './src/config/environments/client'
+        granify: './src/config/environments/client'
     },
 
     resolve: {

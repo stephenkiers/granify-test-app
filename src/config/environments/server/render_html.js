@@ -1,6 +1,16 @@
 import assets_path from '../../../../webpack-assets.json'
 
 export default () => {
+    console.log('==========')
+    console.log('==========')
+    console.log('==========')
+    console.log('==========')
+    console.log(assets_path)
+    console.log(assets_path["granify"])
+    console.log('==========')
+    console.log('==========')
+    console.log('==========')
+    console.log('==========')
     const js_path = assets_path["granify"]["js"];
     const vendor_path = assets_path["vendor"]["js"];
     const build_guid = function() {
