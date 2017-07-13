@@ -10,14 +10,17 @@ class Records extends Component {
         return (
             <div className="index-of-records">
                 {
-                    this.props.records.map(record => {
-                        return (
-                            <RecordContainer
-                                key={record.get('id')}
-                                record={record}
-                            />
-                        )
-                    }).toJS()
+                    this.props.records
+                        .sortBy(record => record.get('created_at'))
+                        .reverse()
+                        .map(record => {
+                            return (
+                                <RecordContainer
+                                    key={record.get('id')}
+                                    record={record}
+                                />
+                            )
+                        }).toJS()
                 }
             </div>
         )

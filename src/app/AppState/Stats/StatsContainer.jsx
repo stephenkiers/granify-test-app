@@ -16,7 +16,7 @@ class StatsContainer extends Component {
     componentDidMount() {
         this.interval = setInterval(() => {
             this.props.apiGetStatsUpdate()
-        }, 2000);
+        }, 7500);
     }
     componentWillUnmount() {
         if (this.interval) {

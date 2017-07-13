@@ -29,7 +29,7 @@ export const apiRecordGetLatest = () => {
             // this is not an ideal seed file, but I don't think it needs to be
             // optimized for this test, as a backend would really be used
             let testData = []
-            Array.from(new Array(3)).forEach(i => {
+            Array.from(new Array(10)).forEach(i => {
                 testData.push({
                     id: generateRandomUUID(),
                     first_name: faker.Name.firstName(),

@@ -43,6 +43,8 @@ class RecordContainer extends Component {
                 phone_number={record.get('phone_number')}
                 onUpdateClick={this.onUpdateClick}
                 onDelete={this.onDelete}
+
+                created_at={record.get('created_at')}
             />
         )
     }
