@@ -17,8 +17,6 @@ class Record extends Component {
                         <span className="first-name">
                             {this.props.first_name}
                         </span>
-                        {' '}
-                        {this.props.created_at}
                     </strong>
                     <a href={`tel:${this.props.phone_number}`} className="phone-number">
                         {formatTelephoneNumber(this.props.phone_number)}
