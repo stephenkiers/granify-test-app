@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import {formatTelephoneNumber} from "../../../utils";
 
 class TelephoneInput extends Component {
     constructor(props) {
@@ -8,14 +9,7 @@ class TelephoneInput extends Component {
             this.props.onChange(e.target.value.replace(/\D/g,"").substring(0, 10))
         }
         this.formatTelephoneNumber = () => {
-            const {value} = this.props;
-            if (value.length < 4) {
-                return value
-            } else if (value.length < 7) {
-                return this.props.value.replace(/(\d{3})(\d*)/, '$1-$2');
-            } else {
-                return this.props.value.replace(/(\d{3})(\d{3})(\d*)/, '$1-$2-$3');
-            }
+            return formatTelephoneNumber(this.props.value)
         }
     }
     render() {

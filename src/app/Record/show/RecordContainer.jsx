@@ -4,26 +4,37 @@ import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import Record from "./Record";
 import {reduxAppStateSetModalId} from "../../AppState/actions";
+import {apiRecordDelete} from "../actions";
 
 
 class RecordContainer extends Component {
     constructor(props) {
         super(props);
+        this.onDelete = () => {
+            this.props.deleteRecord(this.props.record.get('id'));
+        }
         this.onUpdateClick = () => {
-            this.props.setModalId(this.props.record.get('id'))
+            this.props.setModalId(this.props.record.get('id'));
         }
     }
     render() {
         const {record} = this.props;
+        const state = record.get('state')
 
-        if (record.get('state') !== 'idle') {
+        if (state !== 'idle') {
+            if (state === 'deleting') {
+                return (
+                    <div className="record record-delete clearfix">
+                        <strong>Deleting...</strong>
+                    </div>
+                )
+            }
             return (
                 <div className="record clearfix">
                     <strong>Saving...</strong>
                 </div>
             )
         }
-
         return (
             <Record
                 id={record.get('id')}
@@ -31,6 +42,7 @@ class RecordContainer extends Component {
                 last_name={record.get('last_name')}
                 phone_number={record.get('phone_number')}
                 onUpdateClick={this.onUpdateClick}
+                onDelete={this.onDelete}
             />
         )
     }
@@ -47,6 +59,9 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
     setModalId(id) {
         dispatch(reduxAppStateSetModalId(id))
+    },
+    deleteRecord(id) {
+        dispatch(apiRecordDelete(id))
     }
 });
 

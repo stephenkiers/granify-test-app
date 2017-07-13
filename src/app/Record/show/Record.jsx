@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
+import {formatTelephoneNumber} from "../../utils";
 
 
 class Record extends Component {
@@ -18,7 +19,7 @@ class Record extends Component {
                         </span>
                     </strong>
                     <a href={`tel:${this.props.phone_number}`} className="phone-number">
-                        {this.props.phone_number}
+                        {formatTelephoneNumber(this.props.phone_number)}
                     </a>
                 </div>
                 <div className="pull-right">
@@ -32,6 +33,7 @@ class Record extends Component {
                     <a
                         href="javascript:void(0);"
                         className="btn btn-danger"
+                        onClick={this.props.onDelete}
                     >
                         Delete
                     </a>
@@ -49,6 +51,7 @@ Record.propTypes = {
     last_name: PropTypes.string.isRequired,
     phone_number: PropTypes.string.isRequired,
     onUpdateClick: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
 }
 
 export default Record

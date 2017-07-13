@@ -139,6 +139,9 @@ button.btn {
       color: $link_color;
       margin-left: 20px;
     }
+    &.record-delete {
+      color:red;
+    }
   }
 }
 
