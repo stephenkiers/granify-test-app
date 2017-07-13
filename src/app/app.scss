@@ -1,8 +1,103 @@
 $base_fontcolor : #000;
-$link_color : #359;
+$brand_color : #96D42C;
+$link_color : #21798E;
 
 $serif_font: 'Playfair Display', Cambria, Georgia, "Times New Roman", Times, serif;
 
 body {
   background: #fcfcfc;
+  color: #3a3f3c;
+}
+.container {
+  width:98%;
+  max-width:1200px;
+  margin: 0 auto;
+}
+.mob-hide {
+  @media (max-width: 544px) {
+    display:none;
+  }
+}
+.pull-left {
+  display:block;
+  float:left;
+  @media (max-width: 544px) {
+    float:none;
+    text-align:left;
+  }
+}
+.pull-right {
+  display:block;
+  float:right;
+  @media (max-width: 544px) {
+    float:none;
+    margin-top:10px;
+    text-align:left;
+  }
+}
+.clearfix {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+.btn {
+  display:inline-block;
+  background: $link_color;
+  color: #fff;
+  padding:5px 10px;
+  margin-right:10px;
+  border-radius: 2px;
+  &:last-of-type {
+    margin-right: 0;
+  }
+  text-decoration:none;
+  &:hover {
+    text-decoration:none;
+  }
+}
+.pill {
+  display:inline-block;
+  background: #eee;
+  border-radius:50px;
+  padding:5px 10px;
+  margin-right:10px;
+  strong {
+    margin-right:5px;
+  }
+  &.positive span {
+    color: $brand_color;
+  }
+  &.negative span {
+    color: red;
+  }
+}
+.universal-actions {
+  margin-bottom:20px;
+}
+
+.index-of-records {
+  border: 1px solid #eee;
+  .record {
+    border-bottom: 1px solid #ccc;
+    padding:10px 20px;
+    &:hover {
+      background: #ddd;
+    }
+    .last-name {
+      font-size: 18px;
+      color:#1a1a1a;
+    }
+    .first-name {
+      font-size: 14px;
+      color: #444;
+    }
+    .phone-number {
+      font-size: 18px;
+      color: $link_color;
+      margin-left: 20px;
+    }
+  }
 }

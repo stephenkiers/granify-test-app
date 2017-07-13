@@ -16,6 +16,10 @@ export default () => {
     <!--
         I am skipping favicons and metadata, because this isn't a real site
     -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/cdn-generated/granify.css?build=${build_guid()}" />
   </head>
