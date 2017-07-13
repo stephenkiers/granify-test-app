@@ -1,4 +1,5 @@
 export const formatTelephoneNumber = number => {
+    number = number.toString();
     if (number.length < 4) {
         return number
     } else if (number.length < 7) {
