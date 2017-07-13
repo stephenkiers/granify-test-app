@@ -8,7 +8,6 @@ import {apiRecordGetLatest} from "../actions";
 class RecordsContainer extends Component {
     constructor(props) {
         super(props);
-        console.log(props.records.size)
         if (props.records.size === 0) {
             props.apiRecordGetLatest()
         }

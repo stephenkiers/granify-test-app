@@ -23,22 +23,27 @@ export const reduxRecordUpdateState = (id, state) => ({
 
 export const apiRecordGetLatest = () => {
     return dispatch => {
-        setTimeout(() => {
+        const fake_fetch = new Promise((resolve, reject) => {
+            setTimeout(function(){
+                let testData = []
+                Array.from(new Array(10)).forEach(() => {
+                    testData.push({
+                        id: generateRandomUUID(),
+                        first_name: faker.name.firstName(),
+                        last_name: faker.name.lastName(),
+                        phone_number: `${Math.floor(1000000000 + Math.random() * 9000000000)}`,
+                        created_at: (new Date).getTime() - Math.floor(Math.random() * 1000)
+                    })
+                })
+                resolve(testData);
+            }, 500);
+        });
+        return fake_fetch.then(res => {
             // GET 'v1/records'
 
             // this is not an ideal seed file, but I don't think it needs to be
             // optimized for this test, as a backend would really be used
-            let testData = []
-            Array.from(new Array(10)).forEach(i => {
-                testData.push({
-                    id: generateRandomUUID(),
-                    first_name: faker.name.firstName(),
-                    last_name: faker.name.lastName(),
-                    phone_number: `${Math.floor(1000000000 + Math.random() * 9000000000)}`,
-                    created_at: (new Date).getTime() - Math.floor(Math.random() * 1000)
-                })
-            })
-            testData.forEach(result => {
+            res.forEach(result => {
                 dispatch(reduxRecordUpdate(
                     result.id,
                     result.first_name,
@@ -47,34 +52,46 @@ export const apiRecordGetLatest = () => {
                     result.created_at
                 ));
             })
-        }, 500)
+        }).catch(err => {
+            //handleErr
+        })
     }
 }
 
 
 export const apiRecordUpdate = (id, first_name, last_name, phone_number, created_at) => {
     return dispatch => {
-        dispatch(reduxRecordUpdateState(id, 'saving'))
-        setTimeout( () => {
+        dispatch(reduxRecordUpdateState(id, 'saving'));
+        created_at = created_at || (new Date).getTime();
+        const fake_fetch = new Promise((resolve, reject) => {
             //This should be a fetch promise to send attributes to backend.
             // In practice, there would be a catch when/if there are errors
             // POST `v1/records/${id}`
-            created_at = created_at || (new Date).getTime();
+            setTimeout(function() {
+                resolve()
+            }, 2000)
+        });
+        return fake_fetch.then(res => {
             dispatch(reduxRecordUpdate(id, first_name, last_name, phone_number, created_at));
             dispatch(reduxRecordUpdateState(id, 'idle'));
             dispatch(reduxAppStateSetModalId(undefined));
-        }, 2000);
+        })
     }
 }
 export const apiRecordDelete = id => {
     return dispatch => {
         dispatch(reduxRecordUpdateState(id, 'deleting'))
-        setTimeout( () => {
+        const fake_fetch = new Promise((resolve, reject) => {
             //This should be a fetch promise to send attributes to backend.
             // In practice, there would be a catch when/if there are errors
             // DELETE `v1/records/${id}`
+            setTimeout(function() {
+                resolve()
+            }, 1000)
+        });
+        return fake_fetch.then(res => {
             dispatch(reduxRecordDelete(id));
             dispatch(reduxAppStateSetModalId(undefined));
-        }, 1000);
+        });
     }
 }
