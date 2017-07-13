@@ -54,9 +54,6 @@ body {
   padding:5px 10px;
   margin-right:10px;
   border-radius: 2px;
-  &.btn-danger {
-    background: red;
-  }
   &:last-of-type {
     margin-right: 0;
   }
@@ -64,6 +61,12 @@ body {
   &:hover {
     background: lighten($link_color, 10%);
     text-decoration:none;
+  }
+  &.btn-danger {
+    background: red;
+    &:hover {
+      background: lighten(red, 25%);
+    }
   }
 }
 button.btn {

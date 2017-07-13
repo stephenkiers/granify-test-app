@@ -11,7 +11,9 @@ class RecordContainer extends Component {
     constructor(props) {
         super(props);
         this.onDelete = () => {
-            this.props.deleteRecord(this.props.record.get('id'));
+            if (confirm("Are you sure you want to delete this record?")) {
+                this.props.deleteRecord(this.props.record.get('id'));
+            }
         }
         this.onUpdateClick = () => {
             this.props.setModalId(this.props.record.get('id'));
