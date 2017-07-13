@@ -105,3 +105,35 @@ body {
     }
   }
 }
+
+
+.modal {
+  position:fixed;
+  z-index:1;
+  top:0;
+  left: 0;
+  right:0;
+  bottom:0;
+  .modal-contents {
+    position:relative;
+    z-index:1;
+    width:90%;
+    max-width: 500px;
+    margin: 50px auto 0;
+    background:#fff;
+    border-radius:3px;
+    padding:10px;
+    .modal-body {
+
+    }
+  }
+  .modal-bg {
+    position:absolute;
+    z-index:0;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,0.35);
+  }
+}

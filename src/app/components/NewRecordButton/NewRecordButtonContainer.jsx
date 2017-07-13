@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import NewRecordButton from "./NewRecordButton";
-import {reduxAppStateSetModalId} from "../AppState/actions";
+import {reduxAppStateSetModalId} from "../../AppState/actions";
 
 
 class NewRecordButtonContainer extends Component {

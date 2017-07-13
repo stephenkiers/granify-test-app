@@ -1,6 +1,14 @@
 import { record_constants } from './records_reducers'
 import { Map } from 'immutable'
 
+export const default_record = Map({
+    id: "",
+    first_name: "",
+    last_name: "",
+    phone_number: "",
+    created_at: 0,
+})
+
 const city = (state = Map(), action) => {
     switch (action.type) {
         case record_constants.RECORD_ADD:
@@ -9,6 +17,7 @@ const city = (state = Map(), action) => {
                 first_name: action.first_name,
                 last_name: action.last_name,
                 phone_number: action.phone_number,
+                created_at: action.created_at
             }));
         case record_constants.RECORD_UPDATE_STATE:
             return state.merge(Map({

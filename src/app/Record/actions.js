@@ -6,6 +6,7 @@ const reduxRecordAdd = (id, first_name, last_name, phone_number) => ({
     first_name,
     last_name,
     phone_number,
+    created_at,
 });
 const reduxRecordUpdateState = (id, state) => ({
     type: record_constants.RECORD_UPDATE_STATE,
@@ -14,13 +15,14 @@ const reduxRecordUpdateState = (id, state) => ({
 
 
 
-export const apiRecordAdd = (id, first_name, last_name, phone_number) => {
+export const apiRecordAdd = (id, first_name, last_name, phone_number, created_at) => {
     return dispatch => {
         dispatch(reduxRecordUpdateState(id, 'saving'))
 
         setTimeout( () => {
+            created_at = created_at || (new Date).getTime();
             dispatch(reduxRecordUpdateState(id, 'idle'));
-            dispatch(reduxRecordAdd(id, first_name, last_name, phone_number));
+            dispatch(reduxRecordAdd(id, first_name, last_name, phone_number, created_at));
         }, 2000);
 
     }

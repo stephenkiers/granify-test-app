@@ -25,6 +25,7 @@ class Record extends Component {
                     <a
                         href="javascript:void(0);"
                         className="btn btn-blue"
+                        onClick={this.props.onUpdateClick}
                     >
                         Update
                     </a>
@@ -41,16 +42,13 @@ class Record extends Component {
     }
 }
 Record.defaultProps = {
-    id: "0123456789",
-    first_name: "First",
-    last_name: "Last",
-    phone_number: "555-555-5555"
 };
 Record.propTypes = {
     id: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
     last_name: PropTypes.string.isRequired,
     phone_number: PropTypes.string.isRequired,
+    onUpdateClick: PropTypes.func.isRequired,
 }
 
 export default Record
