@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const AssetsPlugin = require('assets-webpack-plugin');
-const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 module.exports = {
     devtool: 'eval-source-map', // 'inline-source-map' (slower rebuilds)
