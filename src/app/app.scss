@@ -55,6 +55,7 @@ body {
   }
   text-decoration:none;
   &:hover {
+    background: lighten($link_color, 10%);
     text-decoration:none;
   }
 }
@@ -83,8 +84,11 @@ body {
   .record {
     border-bottom: 1px solid #ccc;
     padding:10px 20px;
+    &:last-of-type {
+      border-bottom: none;
+    }
     &:hover {
-      background: #ddd;
+      background: #eee;
     }
     .last-name {
       font-size: 18px;
